@@ -44,7 +44,7 @@ class Main extends PluginBase implements Listener
         $this->time = $data[2];*/
         foreach ($this->getServer()->getOnlinePlayers() as $value)
         {
-            $nametag = $value->getNameTag();
+            $nametag = $value->getName();
         }
         $ui = new CustomForm("TempBanUI");
         $timeinput = new Slider("Time(per hours) ",1,120,1);
