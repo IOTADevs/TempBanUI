@@ -1,0 +1,13 @@
+name: TempBanUI
+author: SuperKali
+version: 1.0
+api:
+- 3.0.0-ALPHA8
+- 3.0.0-ALPHA9
+- 3.0.0-ALPHA10
+- 3.0.0-ALPHA11
+main: TempBanUI\Main
+description: "TempBanUI plugin by SuperKali for IOTADeveloper's team"
+commands:
+ tempbanui:
+  description: "TempBanUi for banning the players"
