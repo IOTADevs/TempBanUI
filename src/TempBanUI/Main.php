@@ -74,7 +74,7 @@ class Main extends PluginBase implements Listener
         }
         return true;
     }
-    public function onCommand(CommandSender $sender, Command $command, string $label, array $data): bool
+    public function onCommand(CommandSender $sender, Command $command, string $label, array $args): bool
     {
         $player = $sender->getPlayer();
         if($command->getName() == "tempbanui"){
