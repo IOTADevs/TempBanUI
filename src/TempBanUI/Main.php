@@ -38,10 +38,6 @@ class Main extends PluginBase implements Listener
     }
     public function sendbanUI(Player $player)
     {
-        /*$result = $data[0];
-        $this->targetname = $result;
-        $this->reason = $data[1];
-        $this->time = $data[2];*/
         foreach ($this->getServer()->getOnlinePlayers() as $value)
         {
             $nametag = $value->getName();
@@ -68,6 +64,10 @@ class Main extends PluginBase implements Listener
             $data = json_decode($data);
             if($data === Null) return true;
             if($id === 110){
+                $result = $data[0];
+                $this->targetname = $result;
+                $this->reason = $data[1];
+                $this->time = $data[2];
                 $this->getServer()->dispatchCommand(new ConsoleCommandSender(), "tempban " . $this->targetname . ' ' . $this->time . 'h ' . $this->reason);
                 return true;
             }
@@ -77,8 +77,9 @@ class Main extends PluginBase implements Listener
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args): bool
     {
         $player = $sender->getPlayer();
-        if($command->getName() == "tempbanui"){
-            $this->sendbanUI($player);
+        if ($command->getName() == "tempbanui") {
+            if ($sender->hasPermission("tempbanui.staff"))
+                $this->sendbanUI($player);
             return true;
         }
         return true;
